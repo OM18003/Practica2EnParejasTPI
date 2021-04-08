@@ -1,12 +1,11 @@
-
 package container;
+
 import java.util.LinkedList;
 import java.util.List;
-    
+
 public class Container {
-    
+
     List<Package> contents;
-    
 
     public Container() {
         contents = new LinkedList<Package>();
