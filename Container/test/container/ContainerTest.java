@@ -86,56 +86,60 @@ public class ContainerTest extends TestCase {
     /**
      * Test of getVolume method, of class Container.
      */
-    @Test
+  
         public void testGetVolume() {
         System.out.println("getVolume");
-        Container instance = new Container();
         double expResult = 0.0;
-        double result = instance.getVolume();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        double result = 0.0;
+
+        for (int i = 0; i < num_Packages_To_Test; i++) {
+            expResult = expResult + b[i].getVolume();
+        }
+
+        container.clear();
+        for (int i = 0; i < num_Packages_To_Test; i++) {
+            container.add(b[i]);
+        }
+        result = container.getVolume();
+        assertEquals(expResult, result);
     }
 
     /**
      * Test of size method, of class Container.
      */
-    @Test
+
         public void testSize() {
         System.out.println("size");
-        Container instance = new Container();
-        int expResult = 0;
-        int result = instance.size();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        container.clear();
+        for (int i = 0; i < num_Packages_To_Test; i++) {
+            container.add(b[i]);
+        }
+        int result = container.size();
+        assertEquals(num_Packages_To_Test, result);
     }
 
     /**
      * Test of clear method, of class Container.
      */
-    @Test
+ 
         public void testClear() {
         System.out.println("clear");
-        Container instance = new Container();
-        instance.clear();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        container.clear();
     }
 
     /**
      * Test of contains method, of class Container.
      */
-    @Test
+  
         public void testContains() {
-        System.out.println("contains");
-        Package b = null;
-        Container instance = new Container();
-        boolean expResult = false;
-        boolean result = instance.contains(b);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+            System.out.println("contains");
+            container.clear();
+            for (int i = 0; i < num_Packages_To_Test; i++) {
+                container.add(b[i]);
+            }
+            for (int i = 0; i < num_Packages_To_Test - 1; i++) {
+                assertTrue("container contains a Package", container.contains(b[i]));
+            }
     }
 }
 
