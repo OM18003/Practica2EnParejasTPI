@@ -62,28 +62,26 @@ public class ContainerTest extends TestCase {
             assertTrue("container does not contain a Package after it is supposed to have been added", container.contains(b[i]));
         }
     }
-}
-
-/**
- * Test of remove method, of class Container.
- */
+    /**
+    * Test of remove method, of class Container.
+     */
     public void testRemove() {
         container.clear();
-            assertFalse("container.remove(Package) should fail because Container is empty, but it didn't", container.remove(b[0]));
- for (int i=0; i<num_Packages_To_Test; i++) {
- container.clear();
- for (int j=0; j<i; j++) {
- container.add(b[j]);
- }
- for (int j=0; j<i; j++) {
- assertTrue("container.remove(Package) failed to remove a Package that is supposed to be inside", container.remove(b[j]));
- assertFalse("container still contains a Package after it is supposed to have been removed!", container.contains(b[j]));
- }
- for (int j=i; j<num_Packages_To_Test; j++) {
- assertFalse("container.remove(Package) did not fail for a Package that is not inside", container.remove(b[j]));
- }
- }
- } 
+        assertFalse("container.remove(Package) should fail because Container is empty, but it didn't", container.remove(b[0]));
+        for (int i=0; i<num_Packages_To_Test; i++) {
+            container.clear();
+            for (int j=0; j<i; j++) {
+                container.add(b[j]);
+            }
+        for (int j=0; j<i; j++) {
+            assertTrue("container.remove(Package) failed to remove a Package that is supposed to be inside", container.remove(b[j]));
+            assertFalse("container still contains a Package after it is supposed to have been removed!", container.contains(b[j]));
+        }
+        for (int j=i; j<num_Packages_To_Test; j++) {
+            assertFalse("container.remove(Package) did not fail for a Package that is not inside", container.remove(b[j]));
+            }
+        }
+    } 
 
     /**
      * Test of getVolume method, of class Container.
@@ -139,5 +137,8 @@ public class ContainerTest extends TestCase {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
 }
+
+    
+    
+
