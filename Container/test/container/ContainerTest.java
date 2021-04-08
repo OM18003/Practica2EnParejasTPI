@@ -10,6 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  *
@@ -24,6 +26,14 @@ public class ContainerTest extends TestCase {
 
     public ContainerTest(String testName) {
         super(testName);
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
 //    @BeforeClass
@@ -62,32 +72,32 @@ public class ContainerTest extends TestCase {
             assertTrue("container does not contain a Package after it is supposed to have been added", container.contains(b[i]));
         }
     }
+
     /**
-    * Test of remove method, of class Container.
+     * Test of remove method, of class Container.
      */
     public void testRemove() {
         container.clear();
         assertFalse("container.remove(Package) should fail because Container is empty, but it didn't", container.remove(b[0]));
-        for (int i=0; i<num_Packages_To_Test; i++) {
+        for (int i = 0; i < num_Packages_To_Test; i++) {
             container.clear();
-            for (int j=0; j<i; j++) {
+            for (int j = 0; j < i; j++) {
                 container.add(b[j]);
             }
-        for (int j=0; j<i; j++) {
-            assertTrue("container.remove(Package) failed to remove a Package that is supposed to be inside", container.remove(b[j]));
-            assertFalse("container still contains a Package after it is supposed to have been removed!", container.contains(b[j]));
-        }
-        for (int j=i; j<num_Packages_To_Test; j++) {
-            assertFalse("container.remove(Package) did not fail for a Package that is not inside", container.remove(b[j]));
+            for (int j = 0; j < i; j++) {
+                assertTrue("container.remove(Package) failed to remove a Package that is supposed to be inside", container.remove(b[j]));
+                assertFalse("container still contains a Package after it is supposed to have been removed!", container.contains(b[j]));
+            }
+            for (int j = i; j < num_Packages_To_Test; j++) {
+                assertFalse("container.remove(Package) did not fail for a Package that is not inside", container.remove(b[j]));
             }
         }
-    } 
+    }
 
     /**
      * Test of getVolume method, of class Container.
      */
-  
-        public void testGetVolume() {
+    public void testGetVolume() {
         System.out.println("getVolume");
         double expResult = 0.0;
         double result = 0.0;
@@ -107,8 +117,7 @@ public class ContainerTest extends TestCase {
     /**
      * Test of size method, of class Container.
      */
-
-        public void testSize() {
+    public void testSize() {
         System.out.println("size");
         container.clear();
         for (int i = 0; i < num_Packages_To_Test; i++) {
@@ -121,8 +130,7 @@ public class ContainerTest extends TestCase {
     /**
      * Test of clear method, of class Container.
      */
- 
-        public void testClear() {
+    public void testClear() {
         System.out.println("clear");
         container.clear();
     }
@@ -130,19 +138,14 @@ public class ContainerTest extends TestCase {
     /**
      * Test of contains method, of class Container.
      */
-  
-        public void testContains() {
-            System.out.println("contains");
-            container.clear();
-            for (int i = 0; i < num_Packages_To_Test; i++) {
-                container.add(b[i]);
-            }
-            for (int i = 0; i < num_Packages_To_Test - 1; i++) {
-                assertTrue("container contains a Package", container.contains(b[i]));
-            }
+    public void testContains() {
+        System.out.println("contains");
+        container.clear();
+        for (int i = 0; i < num_Packages_To_Test; i++) {
+            container.add(b[i]);
+        }
+        for (int i = 0; i < num_Packages_To_Test - 1; i++) {
+            assertTrue("container contains a Package", container.contains(b[i]));
+        }
     }
 }
-
-    
-    
-

@@ -11,6 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
 
 public class WarehouseTest extends TestCase {
 
@@ -21,6 +23,14 @@ public class WarehouseTest extends TestCase {
 
     public WarehouseTest(String testName) {
         super(testName);
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
     @Override
@@ -107,11 +117,4 @@ public class WarehouseTest extends TestCase {
         }
     }
 
-//    @BeforeClass
-//    public static void setUpClass() {
-//    }
-//
-//    @AfterClass
-//    public static void tearDownClass() {
-//    }
 }
